@@ -1,4 +1,4 @@
-# JWKS CLI Build and validator .NET Global Tool
+# JWK(S) Builder and validator .NET Global Tool
 
 ## Overview
 JWKS Tools is a .NET global tool that helps build individual JWK, JWKS file from either a single binary ceritificate or a directory of multiple certificate files. It can also be used to verify a JWKS agains a directory of certificate files to verify if there is a discrepency.
@@ -10,7 +10,7 @@ dotnet tool install --global jwkstools
 
 ![](assets/InitialHelpScreen.png)
 
-### Usage
+### Usage Demo
 ![](assets/Intro.gif)
 
 ## Commands
