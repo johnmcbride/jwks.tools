@@ -8,7 +8,7 @@ JWKS Tools is a .NET global tool that helps build individual JWK, JWKS file from
 dotnet tool install --global jwkstools
 ```
 
-![](assets/InitialHelpScreen.png)
+![](https://raw.githubusercontent.com/johnmcbride/jwks.tools/main/assets/InitialHelpScreen.png)
 
 ### Usage Demo
 ![](assets/Intro.gif)
