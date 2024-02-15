@@ -11,7 +11,7 @@ dotnet tool install --global jwkstools
 ![](https://raw.githubusercontent.com/johnmcbride/jwks.tools/main/assets/InitialHelpScreen.png)
 
 ### Usage Demo
-![](assets/Intro.gif)
+![](https://raw.githubusercontent.com/johnmcbride/jwks.tools/main/assets/Intro.gif)
 
 ## Commands
 There are currently three commands in this tool. asd
