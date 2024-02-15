@@ -8,6 +8,12 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>jwkstools</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Authors>John McBride</Authors>
+    <PackageProjectUrl>https://github.com/johnmcbride/jwks.tools</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageDescription>JWK(S) Builder and validator .NET Global Tool</PackageDescription>
+    <RepositoryUrl>https://github.com/johnmcbride/jwks.tools</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
