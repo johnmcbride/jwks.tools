@@ -1,14 +1,18 @@
-lsi: false
-safe: true
-source: https://github.com/johnmcbride/jwks.tools
-incremental: false
-highlighter: rouge
-gist:
-  noscript: false
-kramdown:
-  math_engine: mathjax
-  syntax_highlighter: rouge
-github:
-  zip_url: http://example.com/download.zip
-  another_url: another value
+title: JWK(S) Tools and Generator Open Source Project
+description: JWKS .NET Global tool is a utility for helping create JWK and JWKS based on certificate files.
+show_downloads: true
 theme: jekyll-theme-cayman
+# lsi: false
+# safe: true
+# source: https://github.com/johnmcbride/jwks.tools
+# incremental: false
+# highlighter: rouge
+# gist:
+#   noscript: false
+# kramdown:
+#   math_engine: mathjax
+#   syntax_highlighter: rouge
+# github:
+#   zip_url: http://example.com/download.zip
+#   another_url: another value
+# theme: jekyll-theme-cayman
