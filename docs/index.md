@@ -1,123 +1,248 @@
 ---
 layout: default
+
+carousels:
+  - images: 
+    - image: /assets/images/s1.png
+    - image: /assets/images/s2.png
+    - image: /assets/images/s3.png
+    - image: /assets/images/s4.png
+    - image: /assets/images/s5.png
+title: JWK(S) Tools and Generator CLI
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+# Overview
+JWKS Tools is a .NET global tool that helps build individual JWK, JWKS file from either a single binary ceritificate or a directory of multiple certificate files. It can also be used to verify a JWKS agains a directory of certificate files to verify if there is a discrepency.
 
-[Link to another page](./another-page.html).
-
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
-# Header 1
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
-## Header 2
-
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
-
-### Header 3
-
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
+## Installation
+```sh
+dotnet tool install --global jwkstools
 ```
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
+## Preview Screenshots
+{% include carousel.html height="50" unit="%" duration="1000" number="1" %}
+
+## Commands
+
+There are currently three commands in this tool. asd
+
+- **buildjwk** - This command take a certificate and then builds a JWK file from the certificate. Options for command are listed in the table below.
+
+- **buildjwks** - This command takes a directory of one of more certificates and will build a JWKS file with each cert in the keys elements of the file. Options for command are listed in the table below.
+
+- **verifyJWKS** - This command takes a directory with one or more certificates and a JWKS file. It will compare each certificate with whats in the JWKS and report out matches. You can also choose to create a new JWKS file based on the output. Options for command are listed in the table below.
+
+### buildjwk Command
+
+Below are the arguments and options that can be used with the buildjwk command.
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Position</th>
+    <th>Description</th>
+    <th>Values</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <td>n/a</td>
+    <td>Command Argument</td>
+    <td>0</td>
+    <td>name (and full path if needed) of a certificate</td>
+    <td>n/a</td><td>n/a</td>
+  </tr>
+  <tr>
+    <td>n/a</td>
+    <td>Command Argument</td>
+    <td>1</td>
+    <td>name (and full path if needed) the output file</td>
+    <td>n/a</td>
+    <td>n/a</td>
+  </tr>
+  <tr>
+    <td>--display</td>
+    <td>Option</td>
+    <td>n/a</td>
+    <td>Output JWK to the console</td>
+    <td>n/a</td>
+    <td>n/a</td>
+  </tr>
+  <tr>
+    <td nowrap>--overwrite</td>
+    <td>Option</td>
+    <td>n/a</td>
+    <td>Overwrite JWK output file if it exists</td>
+    <td>n/a</td>
+    <td>n/a</td>
+  </tr>
+  <tr>
+    <td>--hash</td>
+    <td>Option</td>
+    <td>n/a</td>
+    <td>Define what KID hash algorithm should be used</td>
+    <td>sha1, sha256, md5</td>
+    <td>sha1</td>
+  </tr>
+  <tr>
+    <td>--help</td>
+    <td>Option</td>
+    <td>n/a</td>
+    <td>Get help for the command</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+### Examples
+```sh
+jwkstools buildjwk c:\cert\testcert.crt c:\jwkfiles\testcert.jwk --hash sha256
+
+jwkstools buildjwk c:\cert\testcert.crt c:\jwkfiles\testcert.jwk
+--display --sha1
+
+jwkstools buildjwk c:\cert\testcert.crt c:\jwkfiles\testcert.jwk --hash sha256 --overwrite
 ```
 
-#### Header 4
+### buildjwks Command
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+Below are the arguments and options that can be used with the buildjwks command.
 
-##### Header 5
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Position</th>
+    <th>Description</th>
+    <th>Values</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <td>n/a</td>
+    <td>Command Argument</td>
+    <td>0</td>
+    <td>Path of a directory that contains one or more certificates</td>
+    <td>n/a</td>
+    <td>n/a</td>
+  </tr>
+  <tr>
+      <td>n/a</td>
+      <td>Command Argument</td>
+      <td>1</td>
+      <td>name (and full path if needed) the output JWKS file</td>
+      <td>n/a</td>
+      <td>n/a</td>
+  </tr>
+  <tr>
+      <td>--display</td>
+      <td>Option</td>
+      <td>n/a</td>
+      <td>Output JWK to the console</td>
+      <td>n/a</td>
+      <td>n/a</td>
+  </tr>
+  <tr>
+      <td nowrap>--overwrite</td>
+      <td>Option</td>
+      <td>n/a</td>
+      <td>Overwrite JWK output file if it exists</td>
+      <td>n/a</td>
+      <td>n/a</td>
+  </tr>
+  <tr>
+      <td>--hash</td>
+      <td>Option</td>
+      <td>n/a</td>
+      <td>Define what KID hash algorithm should be used</td>
+      <td>sha1, sha256, md5</td>
+      <td>sha1</td>
+  </tr>
+  <tr>
+      <td>--help</td>
+      <td>Option</td>
+      <td>n/a</td>
+      <td>Get help for the command</td>
+      <td></td>
+      <td></td>
+  </tr>
+</table>
 
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
+### Examples
+```sh
+jwkstools buildjwks c:\cert\testcert.crt c:\jwkfiles\testcert.jwk --hash sha256
 
-###### Header 6
+jwkstools buildjwks c:\certs\ c:\jwkfiles\testcert.jwk
+--display --sha1
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+jwkstools buildjwks c:\cert\testcert.crt c:\jwkfiles\testcert.jwk --hash sha256 --overwrite
 ```
 
+### verifyjwks Command
+
+Below are the arguments and options that can be used with the verifyjwks command.
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Position</th>
+    <th>Description</th>
+    <th>Values</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+      <td>n/a</td>
+      <td>Command Argument</td>
+      <td>0</td>
+      <td>Path of a directory that contains one or more certificates</td>
+      <td>n/a</td>
+      <td>n/a</td>
+  </tr>
+  <tr>
+      <td>n/a</td>
+      <td>Command Argument</td>
+      <td>1</td>
+      <td>Path and filename of the JWKS file to verify</td>
+      <td>n/a</td>
+      <td>n/a</td>
+  </tr>
+  <tr>
+      <td nowrap>--createnew</td>
+      <td>Option</td>
+      <td>n/a</td>
+      <td>Create a new jwks file that is date stamped (in the local where the tool was run)</td>
+      <td>n/a</td>
+      <td>n/a</td>
+  </tr>
+  <tr>
+      <td>--hash</td>
+      <td>Option</td>
+      <td>n/a</td>
+      <td>Define what KID hash algorithm should be used</td>
+      <td>sha1, sha256, md5</td>
+      <td>sha1</td>
+  </tr>
+  <tr>
+      <td>--help</td>
+      <td>Option</td>
+      <td>n/a</td>
+      <td>Get help for the command</td>
+      <td></td>
+      <td></td>
+  </tr>
+</table>
+
+### Examples
+```sh
+jwkstools verifyjwks c:\certs\ c:\jwkfiles\newfile.jwks
+
+jwkstools verifyjwks c:\certs\ c:\jwkfiles\newfile.jwks --hash sha1
+
+jwkstools verifyjwks c:\certs\ c:\jwkfiles\newfile.jwks --createnew --hash sha256 --overwrite
 ```
-The final element.
-```
+
+## More Information
+
+- Issues: Please file issues on github so we can followup and track.
+- Contact: Please use github for any communication
+- Pull request are welcome. If you would like to add something, feel free to create a pull request and I'll review

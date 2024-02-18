@@ -1,7 +1,14 @@
-title: JWK(S) Tools and Generator Open Source Project
-description: JWKS .NET Global tool is a utility for helping create JWK and JWKS based on certificate files.
+title: JWK(S) Tools and Generator CLI
+description: A .NET Global tool utility for helping create JWK and JWKS based on certificate files.
 show_downloads: true
+nuget:
+  show_nuget: true
+  nuget_url: https://www.nuget.org/packages/jwks.tools/
+show_nuget: true
 theme: jekyll-theme-cayman
+github:
+  zip_url: https://github.com/johnmcbride/jwks.tools/archive/refs/heads/main.zip
+
 # lsi: false
 # safe: true
 # source: https://github.com/johnmcbride/jwks.tools
