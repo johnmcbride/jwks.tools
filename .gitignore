@@ -12,6 +12,7 @@
 *.jwks
 certtest
 docs/_site
+gemfile.lock
 
 # User-specific files
 *.rsuser
