@@ -57,7 +57,7 @@ public class VerifyJWKSCommand : Command<VerifyJWKSCommand.Settings>
             {
                 //compare the kid and n values from the cert to each jwk entry
                 //if a match then display the information
-                if ( keySet["kid"].ToString() == fingerprint && keySet["n"].ToString() == jwk.N)
+                if ( keySet["kid"].ToString() == fingerprint && keySet["n"].ToString() == jwk.N.Replace("-","+").Replace("_","/"))
                 {
                     AnsiConsole.MarkupLine("[green]FOUND JWK for certificate[/]");
                     AnsiConsole.MarkupLine($"[blue]Certificate Name: {file.Name}[/]");

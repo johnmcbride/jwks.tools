@@ -55,7 +55,7 @@ public class BuildJWKCommand : Command<BuildJWKCommand.Settings>
         //get the exponent value
         var exponent = jwk.E;
         //modulus parameter
-        var modulus = jwk.N;
+        var modulus = jwk.N.Replace("-","+").Replace("_","/");
         //get keytype
         var kty = jwk.Kty;
 

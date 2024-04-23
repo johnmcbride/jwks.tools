@@ -83,7 +83,7 @@ public class BuildJWKSCommand : Command<BuildJWKSCommand.Settings>
             }
 
             var exponent = jwk.E;
-            var modulus = jwk.N;
+            var modulus = jwk.N.Replace("-","+").Replace("_","/");;
             var kty = jwk.Kty;
 
             dynamic jwkJson = new JObject();
